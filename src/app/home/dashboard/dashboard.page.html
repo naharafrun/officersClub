@@ -1,0 +1,79 @@
+<ion-header>
+    <ion-toolbar style="--background: #863587;">
+        <ion-button slot="start" class="menuButtonNav" style="padding-left: 10px;">
+            <ion-menu-button menu="home" class="navIconMenu"></ion-menu-button>
+        </ion-button>
+        <ion-title class="menuNavTitle" style="color: #ffff;padding-left: 20%;">
+          Welcome, {{userName}}</ion-title>
+        <ion-label class="addProducts">
+            <ion-icon style="font-size: 30px; bottom: 10px" name="notifications-outline"></ion-icon></ion-label>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="backgroundImage">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+                pullingIcon="arrow-dropdown"
+                pullingText="Pull to refresh"
+                refreshingSpinner="circles">
+        </ion-refresher-content>
+    </ion-refresher>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button style="--background: #5a226c !important;">
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+            <ion-fab-button class="childBtn">
+                <ion-icon style="color: #ffffff" name="person-add-outline"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+        <ion-fab-list side="start">
+            <ion-fab-button class="childBtn">
+                <ion-icon style="color: #ffffff" name="cash"></ion-icon></ion-fab-button>
+        </ion-fab-list>
+    </ion-fab>
+
+    <div class="showbox" *ngIf="showing === true">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+        </div>
+    </div>
+    <div style="margin: 0 20px 20px">
+        <ion-card class="itemCardDash">
+            <ion-card-header style="text-align: center; --background: #F0EAF0">
+<!--                <pre>{{findLogo | json}}</pre>-->
+                <ion-img style="width: 50%; height:auto; padding-top: 5%;margin: 0 auto;"
+                         src="assets/img/officer-club-logo.png"></ion-img>
+                <ion-card-subtitle>{{businessName}}</ion-card-subtitle>
+            </ion-card-header>
+        </ion-card>
+        <ion-grid>
+            <ion-row>
+                <ion-col size="6">
+                    <ion-card  [routerDirection]="'root'" routerLink="/home/customers" >
+                        <ion-item class="firstIonItem">
+                            <ion-icon style="color: #863587" align-items-center name="people"></ion-icon>
+                        </ion-item>
+                        <ion-item style="text-align: center; color: #863587">
+                            <ion-label>Employees</ion-label>
+                        </ion-item>
+                    </ion-card>
+                </ion-col>
+                <ion-col size="6">
+                    <ion-card  [routerDirection]="'root'" routerLink="/home/customers" >
+                        <ion-item class="firstIonItem">
+                            <ion-icon style="color: #863587" align-items-center name="archive-outline"></ion-icon>
+                        </ion-item>
+                        <ion-item style="text-align: center; color: #863587">
+                            <ion-label>Available Balance</ion-label>
+                        </ion-item>
+                    </ion-card>
+                </ion-col>
+
+            </ion-row>
+        </ion-grid>
+    </div>
+
+</ion-content>

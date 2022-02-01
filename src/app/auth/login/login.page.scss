@@ -1,0 +1,88 @@
+#loginPage{
+    .bottomImages{
+        width: 100px;
+        margin: 0px auto;
+    }
+  ion-input.fieldInput{
+    --background: transparent;
+    //display: block;
+    border-radius: 10px !important;
+    margin: 5px auto 20px;
+    --box-shadow: none;
+    border: 1px solid #863587;
+    //width: 90%;
+    //color: #863587;
+  }
+    ion-button.loginButton{
+      border-radius: 25px !important;
+      margin: 50px auto 0px;
+      width: 70%;
+      //color: #863587;
+    }
+    .pageForRegistration{
+        text-align: center;
+    }
+    ion-button.registration{
+        --background: #ea4335;
+        width: 180px;
+        display: block;
+        border-radius: 100%;
+        margin: 10px auto 0px;
+    }
+
+    .loginField{
+        --border-radius: 12px;
+        margin-top: 50px;
+    }
+    .regField{
+        --border-radius: 12px;
+        margin-top: 10px;
+    }
+  .registerText{
+    color: #863587;
+    cursor: pointer;
+  }
+  .labelText{
+    color: #863587;
+    cursor: pointer;
+  }
+  .alertMessage {
+    width: 100%;
+    height: 75px;
+    position: absolute;
+    background: #ea4335;
+    font-size: 19px;
+    text-align: center;
+    margin-left: -17px;
+    padding: 16px;
+    margin-top: 20px;
+  }
+  .native-input.sc-ion-input-ios{
+    background: #dedede;
+    padding: 15px;
+
+  }
+  .native-input.sc-ion-input-ios {
+    background: #000;
+    border-radius: 50px;
+  }
+  .bottomIcon{
+    --border-color: transparent;
+    --background: transparent;
+    bottom: 0px;
+  }
+}
+.ionicButtonInput {
+  border-radius: 24px;
+  --background: #f5f2f2;
+  border: 1px solid #febe4a;
+  margin-bottom: 10px;
+}
+.x{
+  display:inline-block;
+  width:45px;
+  height:50px;
+  margin:10px;
+  --background:#f3e3f1;
+  --padding-start:16px;
+}

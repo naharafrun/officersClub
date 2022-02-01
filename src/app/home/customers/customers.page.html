@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar style="--background: #863587;">
+    <ion-button slot="start" class="menuButtonNav">
+      <ion-menu-button menu="home" class="navIconMenu"></ion-menu-button>
+    </ion-button>
+    <ion-title class="menuNavTitle">Customers</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="backgroundImage">
+  <ion-refresher slot="fixed" >
+    <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div style="margin: 0 32px 0">
+    <ion-searchbar
+            [(ngModel)]="searchTerm" style="margin-top: 6px; padding: 0 !important;
+                 border: 1px solid #863587;"></ion-searchbar>
+  </div>
+
+  <ion-virtual-scroll [items]=this.items>
+    <ion-item *virtualItem="let customersData" class="productBox">
+      <label class="productInboxName">
+        <h6 style="color: #863587">{{customersData.cus_Code}}</h6>
+        <p style="margin: 0 0 10px 0">{{customersData.cus_Name}}</p>
+        <p style="margin: 0 0 10px 0">{{customersData.cus_Area}}</p>
+      </label>
+      <a class="callButton" href="tel:{{customersData.cus_Mobile}}"><ion-icon name="call"></ion-icon></a>
+    </ion-item>
+  </ion-virtual-scroll>
+
+</ion-content>
+

@@ -1,0 +1,182 @@
+.addProducts ion-icon{
+  font-size: 36px;
+  color: white;
+  padding: 5px;
+  background: transparent;
+  border-radius: 100%;
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+}
+
+.button-md {
+  background-color: #e44e37;
+}
+
+.buttonDelete{
+  float: right;
+  --background: transparent;
+  //--border-radius: 25px;
+  width: 35%;
+  //margin: 20px;
+  color: red;
+  //border-radius: 25px;
+  //border: 1px solid red;
+  --box-shadow: none;
+}
+.childBtn{
+  float: right;
+  --background: #863587;
+  width: 80%;
+  height: 45px;
+  --box-shadow: none;
+}
+.buttonAdd{
+  float: right;
+  --background: transparent;
+  --border-radius: 25px;
+  width: 45%;
+  margin: 20px;
+  color: #947796;
+  border-radius: 25px;
+  border: 1px solid #947796;
+  --box-shadow: none;
+}
+.itemTitle {
+  width: 35%;
+  background: none;
+  border-radius: 50px;
+  margin: 5px;
+  //padding: 10px;
+  text-align: left;
+  display: inline-block;
+}
+.itemItem {
+  display: inline-block;
+  width: 54%;
+  //float: right;
+  --border-color: transparent;
+  margin: 0px;
+  --background: transparent;
+  font-size: 14px;
+}
+.firstIonItem {
+  --border-color: #FFE0FF4D;
+  //border-bottom: 1px solid #c1c0c0;
+}
+.firstIonItemStyle {
+  --border-color: transparent;
+  //border-bottom: 1px solid #c1c0c0;
+  //--background: #f1f1f1;
+}
+.notPendingOrder {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 15px;
+  color: #000;
+  padding: 15px;
+}
+.productDetailNotPlaced {
+  margin: 0px;
+  width: 50%;
+  height: 100%;
+  font-size: 16px;
+  --border-color: transparent;
+  color: #947796;
+}
+.productDetailNotConfirmed {
+  margin: 0px;
+  width: 50%;
+  height: 100%;
+  font-size: 16px;
+  --border-color: transparent;
+  color: #4C7CA9;
+}
+.productDetailConfirmed {
+  margin: 0px;
+  width: 50%;
+  height: 100%;
+  font-size: 16px;
+  --border-color: transparent;
+  color: #863587;
+}
+.itemboxProducts {
+  display: inline-block;
+  padding: 10px;background: #e2e2e2;border-radius: 50px;width: 40%;margin-right: 2%;
+}
+.itemCardDash {
+  margin: 16px;
+}
+.itemCard {
+  border-radius: 13px;
+  border: 1px solid #947796;
+  box-shadow: none;
+  //margin-bottom: 15px;
+}
+.itemCardConfirm {
+  border-radius: 30px;
+  border: 1px solid #863587;
+  box-shadow: none;
+  margin-bottom: 15px;
+}
+.itemCardNotPlaced {
+  border-radius: 30px;
+  border: 1px solid #947796;
+  box-shadow: none;
+  margin-bottom: 15px;
+}
+.headingTitle{
+  background: #947796;
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  padding: 10px;
+  font-size: 18px;
+  margin: 0px 0px 0px;
+  color: white;
+}
+.headingTitleConfirm{
+  background: #863587;
+  border-radius: 25px 25px 0 0;
+  text-align: center;
+  padding: 10px;
+  font-weight: 300;
+  margin: 0px 0px 20px;
+  color: white;
+}
+.headingTitleNotPlaced{
+  background: #947796;
+  border-radius: 25px 25px 0 0;
+  text-align: center;
+  padding: 10px;
+  font-weight: 300;
+  margin: 0px 0px 20px;
+  color: white;
+}
+.ionCardSection{
+  position: absolute;
+  margin-top: -90%;
+  width: 100%;
+  box-shadow: none;
+  color: black;
+}
+.ionCardContentSection{
+  padding: 0px;
+  width: 100%;
+  display: inline-block
+}
+.greetingMessage{
+  font-size: 24px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 800;
+}
+.dateText{
+  text-align: center;
+  font-size: 48px;
+  color: #ffffff;
+}
+.dateTime{
+  text-align: center;
+  font-size: 30px;
+  color: #ffffff;
+}

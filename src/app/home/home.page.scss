@@ -1,0 +1,35 @@
+.item-inner{
+  border: none;
+}
+.headingItems{
+  background: #863587;
+  --background: #863587;
+  height: 22%;
+  --border: transparent;
+  --border-color: transparent;
+  padding-top: 5%;
+  color: white;
+  font-size: 20px;
+  --font-weight: 500;
+  box-shadow: none;
+}
+.submenuItems{
+  font-size: 16px;
+  color: black;
+}
+.submenuIonItem{
+  --border-color: transparent;
+  color: white;
+  --box-shadow: none;
+}
+.submenuIonIcon{
+  font-size: 16px;
+  margin: 12px 12px 12px 0;
+  color: #863587;
+}
+.subMenuLogout{
+  --background: #863587;
+  color: white;
+  font-size: 16px;
+}
+

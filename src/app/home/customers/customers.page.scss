@@ -1,0 +1,41 @@
+.productTitleName{
+  padding: 6px 8px;
+  margin: 0 10px 0 0;
+  border-radius: 50px;
+  background: #f1f1f1;
+  display: inline-block;
+  text-align: center;
+  width: 45%;
+  font-size: 14px;
+}
+.productInboxName{
+  font-weight: 500;
+  width: 90%;
+  display: block;
+  float: right;
+  font-size: 14px;
+  padding-left: 15px;
+}
+.productBox{
+  --border-color: transparent;
+  color: #863587;
+  //border-bottom: 1px solid #c1c0c0;
+  width: 80%;
+  height:auto;
+  padding-top: 5%;
+  margin: 0 auto;
+  border-bottom: 1px solid #c1c0c0;
+  --background: #f1f1f1;
+}
+.callButton{
+  color: #ffffff;
+  padding: 9px 9px 6px 11px;
+  background: #863587;
+  border-radius: 50px;
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 16px;
+  border: 1px solid #863587;
+  box-shadow: 1px 1px 6px #CCC;
+  --padding-end: 0px;
+}
