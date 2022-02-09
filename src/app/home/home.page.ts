@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import {Router} from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
     userName: string;
     userRole: string;
     supervisor: string;
@@ -48,7 +48,11 @@ export class HomePage {
     constructor(public router: Router,) {
 
     }
-    gotoLogout() {
+    ngOnInit() {
+      this.userName = localStorage.getItem('employee_name');
+    }
+
+  gotoLogout() {
         this.router.navigateByUrl('/login');
         // this.showing = true;
     }

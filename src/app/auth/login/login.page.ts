@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 import {NavController, ToastController} from '@ionic/angular';
 import {AuthService} from '../../services/auth/auth.service';
 import {Router} from '@angular/router';
@@ -25,6 +25,7 @@ export class LoginPage implements OnInit {
   constructor(public authService: AuthService, public toastCtrl: ToastController,
               public navCtrl: NavController,
               public router: Router,
+              private render: Renderer2,
               // private smsRetriever: SmsRetriever,
               public loadingController: LoadingController) {
    /* this.smsRetriever.getAppHash()
@@ -56,6 +57,13 @@ export class LoginPage implements OnInit {
     else {
       return 0;
     }
+  }
+
+  public onShow(controlToShow) {
+    this.render.setStyle(controlToShow, 'visibility', 'visible');
+  }
+  public onHide(controlToHide) {
+    this.render.setStyle(controlToHide, 'visibility', 'hidden');
   }
   doLogin() {
     this.router.navigateByUrl('/home/dashboard');

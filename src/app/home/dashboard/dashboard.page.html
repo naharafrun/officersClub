@@ -18,20 +18,6 @@
                 refreshingSpinner="circles">
         </ion-refresher-content>
     </ion-refresher>
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button style="--background: #5a226c !important;">
-            <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-list side="top">
-            <ion-fab-button class="childBtn">
-                <ion-icon style="color: #ffffff" name="person-add-outline"></ion-icon>
-            </ion-fab-button>
-        </ion-fab-list>
-        <ion-fab-list side="start">
-            <ion-fab-button class="childBtn">
-                <ion-icon style="color: #ffffff" name="cash"></ion-icon></ion-fab-button>
-        </ion-fab-list>
-    </ion-fab>
 
     <div class="showbox" *ngIf="showing === true">
         <div class="loader">
@@ -44,8 +30,8 @@
         <ion-card class="itemCardDash">
             <ion-card-header style="text-align: center; --background: #F0EAF0">
 <!--                <pre>{{findLogo | json}}</pre>-->
-                <ion-img style="width: 50%; height:auto; padding-top: 5%;margin: 0 auto;"
-                         src="assets/img/officer-club-logo.png"></ion-img>
+                <ion-img style=" height:auto; margin: 0 auto;"
+                         src="assets/img/BASIS-Member-Logo.jpg"></ion-img>
                 <ion-card-subtitle>{{businessName}}</ion-card-subtitle>
             </ion-card-header>
         </ion-card>
