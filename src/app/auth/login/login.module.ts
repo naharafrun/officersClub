@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { LoginPageRoutingModule } from './login-routing.module';
 
 import { LoginPage } from './login.page';
-import {SmsRetriever} from '@ionic-native/sms-retriever';
 
 @NgModule({
   imports: [
@@ -16,7 +15,7 @@ import {SmsRetriever} from '@ionic-native/sms-retriever';
     IonicModule,
     LoginPageRoutingModule
   ],
-  // providers: [SmsRetriever],
+  providers: [],
   declarations: [LoginPage]
 })
 export class LoginPageModule {}

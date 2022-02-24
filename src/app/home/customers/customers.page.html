@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar style="--background: #863587;">
+  <ion-toolbar style="--background: #008940;">
     <ion-button slot="start" class="menuButtonNav">
       <ion-menu-button menu="home" class="navIconMenu"></ion-menu-button>
     </ion-button>
@@ -18,13 +18,13 @@
   <div style="margin: 0 32px 0">
     <ion-searchbar
             [(ngModel)]="searchTerm" style="margin-top: 6px; padding: 0 !important;
-                 border: 1px solid #863587;"></ion-searchbar>
+                 border: 1px solid #008940;"></ion-searchbar>
   </div>
 
   <ion-virtual-scroll [items]=this.items>
     <ion-item *virtualItem="let customersData" class="productBox">
       <label class="productInboxName">
-        <h6 style="color: #863587">{{customersData.cus_Code}}</h6>
+        <h6 style="color: #008940">{{customersData.cus_Code}}</h6>
         <p style="margin: 0 0 10px 0">{{customersData.cus_Name}}</p>
         <p style="margin: 0 0 10px 0">{{customersData.cus_Area}}</p>
       </label>

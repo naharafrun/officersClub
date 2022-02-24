@@ -1,5 +1,5 @@
 {
-  "name": "officersClub",
+  "name": "basisMemberList",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -19,7 +19,8 @@
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
-    "@awesome-cordova-plugins/sms-retriever": "^5.37.3",
+    "@awesome-cordova-plugins/sms": "^5.39.1",
+    "@awesome-cordova-plugins/sms-retriever": "^5.39.1",
     "@capacitor/app": "1.1.0",
     "@capacitor/camera": "^1.2.4",
     "@capacitor/core": "3.4.0",

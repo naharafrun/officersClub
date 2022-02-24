@@ -5,19 +5,26 @@
         </svg> </div>
     </div>
     <ion-item class="bottomIcon"><ion-img style="width: 70%; height:auto; margin: 0 auto; padding-bottom: 50px;padding-top: 20%"
-                                          src="assets/img/basis-logo.png"></ion-img></ion-item>
+                                          src="assets/img/logo.png"></ion-img></ion-item>
 
     <!--  <ion-img style="width: 70%; height:auto; padding-top: 30%;margin: 0 auto;" src="assets/img/AERP.png"></ion-img>-->
 <!--<div *ngIf="message === true" class="alertMessage">Wrong Password, Username or Missing Connection!</div>-->
-  <form (submit)="doLogin()">
-      <div style="--background: transparent;--highlight-color-valid:transparent,">
+  <form>
+      <div *ngIf="showOTPInput === false" style="--background: transparent;--highlight-color-valid:transparent,">
           <ion-label position="fixed" style="margin-bottom: 5px; color: slategray">
-            <ion-icon name="call-outline" item-start class="text-primary"></ion-icon>
               Enter Valid Mobile No
           </ion-label>
           <ion-input class="fieldInput" [(ngModel)]="loginData.username" name="username" type="number"></ion-input>
+        <div>
+          <ion-button (click)="next()" class="loginButton" type="submit" expand="block" style="width: 50%"  [disabled]="isenabled">
+            <ion-label>Send OTP</ion-label>
+          </ion-button>
+        </div>
       </div>
-    <div  style="--background: transparent;--highlight-color-valid:transparent">
+    <div *ngIf="showOTPInput === true">
+      <ion-label position="fixed" style="margin-bottom: 5px; margin-left: 15px; color: slategray">
+        Enter Your OTP code
+      </ion-label>
       <ion-row >
         <ion-col>
           <ion-input class="x" #otp1 required="true" maxLength="1" name="OTP[0]" [(ngModel)] ="OTP[0]" (keyup)="otpController($event,otp2,'')">
@@ -38,13 +45,19 @@
 
         </ion-col>
       </ion-row>
+
+      <div>
+        <ion-button (click)="sendOtp()" class="loginButton" type="submit"
+                    expand="block" style="width: 50%; margin: 30px auto 0!important;"  [disabled]="isenabled">
+          <ion-label>Try Again</ion-label>
+        </ion-button>
+        <ion-button (click)="doLogin()" class="loginButton" type="submit" expand="block"
+                    style="width: 50%; margin: 30px auto 0!important;"  [disabled]="isenabled">
+          <ion-label>Login</ion-label>
+        </ion-button>
+      </div>
     </div>
 
-    <div>
-        <ion-button class="loginButton" type="submit" expand="block" style="width: 70%"  [disabled]="isenabled">
-            <ion-label>Login</ion-label><ion-icon name="log-in"></ion-icon>
-        </ion-button>
-    </div>
   </form>
 
 </ion-content>

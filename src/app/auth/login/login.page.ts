@@ -18,6 +18,8 @@ export class LoginPage implements OnInit {
     loginData = {username: '', password: ''};
     data: any;
     showPassword = false;
+    hideAdmin = true;
+    showAdmin = false;
     passwordToggleItem = 'eye-off';
   OTP: string = '123456';
   showOTPInput: boolean = false;
@@ -26,11 +28,7 @@ export class LoginPage implements OnInit {
               public navCtrl: NavController,
               public router: Router,
               private render: Renderer2,
-              // private smsRetriever: SmsRetriever,
               public loadingController: LoadingController) {
-   /* this.smsRetriever.getAppHash()
-      .then((res: any) => console.log(res))
-      .catch((error: any) => console.error(error));*/
   }
 
   ionViewWillEnter() {
@@ -42,6 +40,10 @@ export class LoginPage implements OnInit {
       this.showing = false;
       this.message = false;
       this.isenabled = false;
+  }
+
+  sendOtp() {
+      this.showOTPInput = true;
   }
 
   otpController(event,next,prev, index){
@@ -68,6 +70,8 @@ export class LoginPage implements OnInit {
   doLogin() {
     this.router.navigateByUrl('/home/dashboard');
   }
+
+
 
   async presentToast(message, position, duration) {
     const toast = await this.toastCtrl.create({
