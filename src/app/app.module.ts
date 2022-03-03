@@ -16,8 +16,7 @@ import {SmsRetriever} from '@ionic-native/sms-retriever';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule],
-  providers: [
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

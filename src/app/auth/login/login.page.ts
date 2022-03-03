@@ -4,6 +4,7 @@ import {AuthService} from '../../services/auth/auth.service';
 import {Router} from '@angular/router';
 import {LoadingController} from '@ionic/angular';
 import {SmsRetriever} from '@ionic-native/sms-retriever/ngx';
+import {SmsService} from "../../services/auth/sms.service";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginPage implements OnInit {
     showing = false;
     message = false;
     isenabled = false;
-    loginData = {username: '', password: ''};
+    loginData = {mobile: ""};
     data: any;
     showPassword = false;
     hideAdmin = true;
@@ -24,7 +25,8 @@ export class LoginPage implements OnInit {
   OTP: string = '123456';
   showOTPInput: boolean = false;
   OTPmessage: string = 'An OTP is sent to your number. You should receive it in 15 s';
-  constructor(public authService: AuthService, public toastCtrl: ToastController,
+  constructor(public authService: AuthService,
+              public toastCtrl: ToastController,
               public navCtrl: NavController,
               public router: Router,
               private render: Renderer2,
@@ -42,11 +44,9 @@ export class LoginPage implements OnInit {
       this.isenabled = false;
   }
 
-  sendOtp() {
-      this.showOTPInput = true;
-  }
 
   otpController(event,next,prev, index){
+    console.log(this.OTP);
     if(index === 6) {
       console.log('submit');
     }
@@ -61,12 +61,7 @@ export class LoginPage implements OnInit {
     }
   }
 
-  public onShow(controlToShow) {
-    this.render.setStyle(controlToShow, 'visibility', 'visible');
-  }
-  public onHide(controlToHide) {
-    this.render.setStyle(controlToHide, 'visibility', 'hidden');
-  }
+
   doLogin() {
     this.router.navigateByUrl('/home/dashboard');
   }
@@ -82,36 +77,26 @@ export class LoginPage implements OnInit {
     toast.present();
   }
 
-  next() {
+  sendOtp() {
     this.showOTPInput = true;
-    this.start();
-  }
+    const reqBody = {
+      "mobile": this.loginData.mobile
+    };
+    this.authService.getOtpCode(reqBody).then(res => {
+      console.log(res);
 
-  start() {
-    /*this.smsRetriever.startWatching()
-      .then((res: any) => {
-        console.log(res);
-        this.processSMS(res);
-      })
-      .catch((error: any) => console.error(error));*/
-  }
 
-  processSMS(data) {
-    // Design your SMS with App hash so the retriever API can read the SMS without READ_SMS permission
-    // Attach the App hash to SMS from your server, Last 11 characters should be the App Hash
-    // After that, format the SMS so you can recognize the OTP correctly
-    // Here I put the first 6 character as OTP
-    const message = data.Message;
-    if (message != -1) {
-      this.OTP = message.slice(0, 6);
-      console.log(this.OTP);
-      this.OTPmessage = 'OTP received. Proceed to register';
-      this.presentToast('SMS received with correct app hash', 'bottom', 1500);
-    }
+    });
+  }
+  tryAgain() {
+    // this.sendOtp();
+    this.authService.getRegister().then(res => {
+      console.log(res);
+    });
   }
 
   register() {
-    if (this.OTP != '') {
+    if (this.OTP !== '') {
       this.presentToast('You are successfully registered', 'bottom', 1500);
       // this.router.navigate(['/home'])
     }

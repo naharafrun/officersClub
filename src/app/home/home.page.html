@@ -27,56 +27,75 @@
                         </ion-item>
                         <ion-item-divider style="min-height: 10px"></ion-item-divider>
                     </ion-menu-toggle>
+              <ion-accordion-group>
+                <ion-accordion value="colors" toggle-icon="arrow-down-circle">
+                <ion-item slot="header">
+                  <ion-label>Colors</ion-label>
+                </ion-item>
+                <ion-list slot="content">
+                  <ion-item>
+                    <ion-label>Red</ion-label>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Green</ion-label>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Blue</ion-label>
+                  </ion-item>
+                </ion-list>
+              </ion-accordion>
+              </ion-accordion-group>
+<!--                <ion-menu-toggle auto-hide="false">-->
+                    <ion-accordion>
+                      <ion-item slot="header" [routerDirection]="'forward'"  class="submenuIonItem"
+                                toggle-icon="arrow-down-circle">
+                        <img src="assets/icon/icons8_staff.png" class="submenuIonIcon">
+                        <ion-label class="submenuItems">
+                          Members
+                        </ion-label>
+                      </ion-item>
+                      <ion-list slot="content" style="margin-left: 24px; padding: 0">
+                          <ion-item [routerDirection]="'forward'" routerLink="/home/customers" class="submenuIonItem">
+                            <ion-icon slot="start" name="people-circle-outline" class="submenuIonIcon"></ion-icon>
+                            <ion-label class="submenuItems">
+                              Affiliate Member
+                            </ion-label>
+                          </ion-item>
+                        <!--<ion-menu-toggle auto-hide="false">
+                          <ion-item [routerDirection]="'forward'"  class="submenuIonItem">
+                            <ion-icon slot="start" name="people-circle-outline" class="submenuIonIcon"></ion-icon>
+                            <ion-label class="submenuItems">
+                              Associate Member
+                            </ion-label>
+                          </ion-item>
+                        </ion-menu-toggle>
+                        <ion-menu-toggle auto-hide="false">
+                          <ion-item [routerDirection]="'forward'"  class="submenuIonItem">
+                            <ion-icon slot="start" name="people-circle-outline" class="submenuIonIcon"></ion-icon>
+                            <ion-label class="submenuItems">
+                              International Member
+                            </ion-label>
+                          </ion-item>
+                        </ion-menu-toggle>
+                        <ion-menu-toggle auto-hide="false">
+                          <ion-item [routerDirection]="'forward'"  class="submenuIonItem">
+                            <ion-icon slot="start" name="people-circle-outline" class="submenuIonIcon"></ion-icon>
+                            <ion-label class="submenuItems">
+                              General Member
+                            </ion-label>
+                          </ion-item>
+                        </ion-menu-toggle>-->
+                      </ion-list>
 
-                <ion-menu-toggle auto-hide="false">
-                    <ion-item [routerDirection]="'forward'" routerLink="/home/customers"  class="submenuIonItem">
-                        <ion-icon slot="start" name="people" class="submenuIonIcon"></ion-icon>
-                        <ion-label class="submenuItems">
-                            Employees
-                        </ion-label>
-                    </ion-item>
+                    </ion-accordion>
 
-                  <ion-list style="margin-left: 24px; padding: 0">
-                    <ion-menu-toggle auto-hide="false">
-                      <ion-item [routerDirection]="'forward'"  class="submenuIonItem">
-                        <ion-icon slot="start" name="people-circle-outline" class="submenuIonIcon"></ion-icon>
-                        <ion-label class="submenuItems">
-                          Affiliate Member
-                        </ion-label>
-                      </ion-item>
-                    </ion-menu-toggle>
-                    <ion-menu-toggle auto-hide="false">
-                      <ion-item [routerDirection]="'forward'"  class="submenuIonItem">
-                        <ion-icon slot="start" name="people-circle-outline" class="submenuIonIcon"></ion-icon>
-                        <ion-label class="submenuItems">
-                          Associate Member
-                        </ion-label>
-                      </ion-item>
-                    </ion-menu-toggle>
-                    <ion-menu-toggle auto-hide="false">
-                      <ion-item [routerDirection]="'forward'"  class="submenuIonItem">
-                        <ion-icon slot="start" name="people-circle-outline" class="submenuIonIcon"></ion-icon>
-                        <ion-label class="submenuItems">
-                          International Member
-                        </ion-label>
-                      </ion-item>
-                    </ion-menu-toggle>
-                    <ion-menu-toggle auto-hide="false">
-                      <ion-item [routerDirection]="'forward'"  class="submenuIonItem">
-                        <ion-icon slot="start" name="people-circle-outline" class="submenuIonIcon"></ion-icon>
-                        <ion-label class="submenuItems">
-                          General Member
-                        </ion-label>
-                      </ion-item>
-                    </ion-menu-toggle>
-                  </ion-list>
                   <ion-item-divider style="min-height: 5px"></ion-item-divider>
-                </ion-menu-toggle>
+<!--                </ion-menu-toggle>-->
                 <ion-menu-toggle auto-hide="false">
                     <ion-item [routerDirection]="'forward'" routerLink="/home/customers"  class="submenuIonItem">
-                        <ion-icon slot="start" name="archive-outline" class="submenuIonIcon"></ion-icon>
+                      <img src="assets/icon/icons8_gears.png" class="submenuIonIcon">
                         <ion-label class="submenuItems">
-                          Available Balance
+                          User Settings
                         </ion-label>
                     </ion-item>
                 </ion-menu-toggle>
@@ -85,10 +104,9 @@
             </ion-list>
         </ion-content>
         <ion-button expand="block" style="width: 70%; border-radius: 25px !important;
-      margin: 20px auto 0px;" (click)="gotoLogout()" class="subMenuLogout">
+                    margin: 20px auto 0px;" (click)="gotoLogout()" class="subMenuLogout">
             <ion-label class="subMenuLogout">Logout</ion-label>
-            <ion-icon name="exit" slot="end"
-                      style="font-size: 18px;margin: 12px 12px 12px 0;color: white"></ion-icon>
+          <img src="assets/icon/icons8_gears.png" class="logOut">
         </ion-button>
     </ion-menu>
     <ion-router-outlet id="home"></ion-router-outlet>

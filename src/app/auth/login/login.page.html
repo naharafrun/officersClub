@@ -14,9 +14,9 @@
           <ion-label position="fixed" style="margin-bottom: 5px; color: slategray">
               Enter Valid Mobile No
           </ion-label>
-          <ion-input class="fieldInput" [(ngModel)]="loginData.username" name="username" type="number"></ion-input>
+          <ion-input class="fieldInput" [(ngModel)]="loginData.mobile" name="mobile" type="string"></ion-input>
         <div>
-          <ion-button (click)="next()" class="loginButton" type="submit" expand="block" style="width: 50%"  [disabled]="isenabled">
+          <ion-button (click)="sendOtp()" class="loginButton" type="submit" expand="block" style="width: 50%"  [disabled]="isenabled">
             <ion-label>Send OTP</ion-label>
           </ion-button>
         </div>
@@ -47,7 +47,7 @@
       </ion-row>
 
       <div>
-        <ion-button (click)="sendOtp()" class="loginButton" type="submit"
+        <ion-button (click)="tryAgain()" class="loginButton" type="submit"
                     expand="block" style="width: 50%; margin: 30px auto 0!important;"  [disabled]="isenabled">
           <ion-label>Try Again</ion-label>
         </ion-button>
