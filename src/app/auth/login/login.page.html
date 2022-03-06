@@ -27,24 +27,22 @@
       </ion-label>
       <ion-row >
         <ion-col>
-          <ion-input class="x" #otp1 required="true" maxLength="1" name="OTP[0]" [(ngModel)] ="OTP[0]" (keyup)="otpController($event,otp2,'')">
+          <ion-input class="x" #otp1 required="true" maxLength="1" name="OTP[0]" [(ngModel)] ="OTP[1]" >
           </ion-input>
-          <ion-input class="x" #otp2 required="true" maxLength="1" name="OTP[1]" [(ngModel)]="OTP[1]" (keyup)="otpController($event,otp3,otp1)">
+          <ion-input class="x" #otp2 required="true" maxLength="1" name="OTP[1]" [(ngModel)]="OTP[2]">
           </ion-input>
-          <ion-input class="x" #otp3 required="true" maxLength="1" name="OTP[2]" [(ngModel)]="OTP[2]"  (keyup)="otpController($event,otp4,otp2)">
-          </ion-input>
-
-          <ion-input class="x" #otp4 required="true" maxLength="1" name="OTP[3]" [(ngModel)]="OTP[3]"  (keyup)="otpController($event,otp5,otp3)">
+          <ion-input class="x" #otp3 required="true" maxLength="1" name="OTP[2]" [(ngModel)]="OTP[3]" >
           </ion-input>
 
-          <ion-input class="x" #otp5  required="true" maxLength="1" name="OTP[4]" [(ngModel)]="OTP[4]" (keyup)="otpController($event,otp6,otp4)">
+          <ion-input class="x" #otp4 required="true" maxLength="1" name="OTP[3]" [(ngModel)]="OTP[4]" >
           </ion-input>
 
-          <ion-input class="x" #otp6  required="true" maxLength="1" name="OTP[5]" [(ngModel)]="OTP[5]" (keyup)="otpController($event,'',otp5)">
+          <ion-input class="x" #otp5  required="true" maxLength="1" name="OTP[4]" [(ngModel)]="OTP[5]">
           </ion-input>
 
         </ion-col>
       </ion-row>
+      <div>Time left = <span id="timer"></span></div>
 
       <div>
         <ion-button (click)="tryAgain()" class="loginButton" type="submit"

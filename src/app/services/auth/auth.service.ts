@@ -54,5 +54,21 @@ export class AuthService {
       });
     });
   }
+  login(credentials) {
+    console.log(credentials);
+    return new Promise((resolve, reject) => {
+      const headers = new HttpHeaders();
+      headers.append('Access-Control-Allow-Origin', '*');
+      headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+      headers.append('Accept', 'application/json');
+      headers.append('content-type', 'application/json');
+      console.log(headers);
+      this.htt.post(apiUrl + 'login', credentials, {headers}).subscribe(data => {
+        resolve(data);
 
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
 }

@@ -3,8 +3,6 @@ import {NavController, ToastController} from '@ionic/angular';
 import {AuthService} from '../../services/auth/auth.service';
 import {Router} from '@angular/router';
 import {LoadingController} from '@ionic/angular';
-import {SmsRetriever} from '@ionic-native/sms-retriever/ngx';
-import {SmsService} from "../../services/auth/sms.service";
 
 @Component({
   selector: 'app-login',
@@ -12,19 +10,17 @@ import {SmsService} from "../../services/auth/sms.service";
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-    loading: any;
-    showing = false;
-    message = false;
-    isenabled = false;
-    loginData = {mobile: ""};
-    data: any;
-    showPassword = false;
-    hideAdmin = true;
-    showAdmin = false;
-    passwordToggleItem = 'eye-off';
-  OTP: string = '123456';
+  loading: any;
+  showing = false;
+  message = false;
+  isenabled = false;
+  loginData = {mobile: ""};
+  showAdmin = false;
+  OTP: string = '';
   showOTPInput: boolean = false;
-  OTPmessage: string = 'An OTP is sent to your number. You should receive it in 15 s';
+  timerOn: number;
+  OTPmessage: string = 'An OTP is sent to your number. You should receive it in 5 s';
+
   constructor(public authService: AuthService,
               public toastCtrl: ToastController,
               public navCtrl: NavController,
@@ -34,35 +30,45 @@ export class LoginPage implements OnInit {
   }
 
   ionViewWillEnter() {
-      if (localStorage.getItem('access_token')) {
-          // this.router.navigateByUrl('/home/dashboard');
-      }
+    if (localStorage.getItem('access_token')) {
+      // this.router.navigateByUrl('/home/dashboard');
+    }
   }
+
   ngOnInit() {
-      this.showing = false;
-      this.message = false;
-      this.isenabled = false;
+    this.showing = false;
+    this.message = false;
+    this.isenabled = false;
   }
 
+  timer(remaining) {
+    let m: string | number = Math.floor(remaining / 60);
+    let s: string | number = remaining % 60;
 
-  otpController(event,next,prev, index){
-    console.log(this.OTP);
-    if(index === 6) {
-      console.log('submit');
+    m = m < 10 ? '0' + m : m;
+    s = s < 10 ? '0' + s : s;
+    document.getElementById('timer').innerHTML = m + ':' + s;
+    remaining -= 1;
+
+    if (remaining >= 0 && this.timerOn) {
+      setTimeout( () =>{
+        this.timer(remaining);
+      }, 5000);
+      return;
     }
-    if(event.target.value.length < 1 && prev){
-      prev.setFocus();
+
+    if (!this.timerOn) {
+      // Do validate stuff here
+      return;
     }
-    else if(next && event.target.value.length>0){
-      next.setFocus();
-    }
-    else {
-      return 0;
-    }
+
+    // Do timeout stuff here
+    alert('Timeout for otp');
   }
 
 
   doLogin() {
+    this.login();
     this.router.navigateByUrl('/home/dashboard');
   }
 
@@ -82,20 +88,32 @@ export class LoginPage implements OnInit {
     const reqBody = {
       "mobile": this.loginData.mobile
     };
+    localStorage.setItem('mobile', this.loginData.mobile);
+    localStorage.getItem(this.loginData.mobile);
+
     this.authService.getOtpCode(reqBody).then(res => {
-      console.log(res);
+      localStorage.setItem('otp', res['otp']);
+      const strOTP = localStorage.getItem('otp');
+      console.log(strOTP);
+      this.OTP = strOTP.substring(0,7);
 
-
+      console.log(this.OTP);
     });
   }
+
+
   tryAgain() {
-    // this.sendOtp();
+    this.sendOtp();
     this.authService.getRegister().then(res => {
       console.log(res);
     });
   }
 
-  register() {
+  login() {
+    const reqBody = {
+      mobile: localStorage.getItem('mobile'),
+      otp: localStorage.getItem('otp')
+    };
     if (this.OTP !== '') {
       this.presentToast('You are successfully registered', 'bottom', 1500);
       // this.router.navigate(['/home'])
@@ -103,5 +121,8 @@ export class LoginPage implements OnInit {
     else {
       this.presentToast('Your OTP is not valid', 'bottom', 1500);
     }
+    this.authService.login(reqBody).then(result => {
+      console.log(result);
+    });
   }
 }
